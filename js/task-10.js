@@ -1,4 +1,3 @@
-// import users from './users';
 const users = [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
@@ -86,8 +85,29 @@ const users = [
   },
 ];
 
-const getUserNames = users => {
-  return users.map(user => user.name);
+const getSortedUniqueSkills = users => {
+  //
+  let uniqueSkills = users
+    //not unique skills//-//-//
+    .reduce(function (total, user) {
+      total.push(...user.skills);
+      return total;
+    }, [])
+    //-//-//
+    //show only unique skills//-//-//
+    .reduce((acc, skill) => {
+      if (!acc.includes(skill)) {
+        acc.push(skill);
+      }
+      return acc;
+    }, [])
+    //-//-//
+    .sort();
+  ///////
+  return uniqueSkills;
+  //
 };
-console.log(getUserNames(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
+
+console.log(getSortedUniqueSkills(users));
+// sk.console.log(sk);
+// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]

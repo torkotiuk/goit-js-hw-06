@@ -1,4 +1,3 @@
-// import users from './users';
 const users = [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
@@ -86,8 +85,6 @@ const users = [
   },
 ];
 
-const getUserNames = users => {
-  return users.map(user => user.name);
-};
-console.log(getUserNames(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
+const getNamesSortedByFriendsCount = (a, b) =>
+  a.friends.length - b.friends.length;
+console.table(users.sort(getNamesSortedByFriendsCount).map(user => user.name));

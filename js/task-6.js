@@ -1,4 +1,3 @@
-// import users from './users';
 const users = [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
@@ -86,8 +85,9 @@ const users = [
   },
 ];
 
-const getUserNames = users => {
-  return users.map(user => user.name);
-};
-console.log(getUserNames(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
+const getUsersWithAge = (users, min, max) =>
+  users.filter(user => user.age >= min && user.age <= max);
+
+console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
+console.log(getUsersWithAge(users, 30, 40));
+// [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
